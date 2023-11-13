@@ -26,7 +26,7 @@
           </div>
           <div class="right-box">
             <div class="form-container">
-              <form id="loginForm" style="display: none;">
+              <form id="loginForm" >
                 <div class="space">
                   <input type="text" class="email-box" placeholder="Dirección de correo electrónico" />
                 </div>
@@ -51,7 +51,7 @@
               </form>
 
               <!-- Formulario de registro (inicialmente oculto) -->
-              <form id="registerForm" action="./php/register.php" method="post">
+              <form style="display: none;" id="registerForm" action="./php/register.php" method="post">
                 <div class="form-group">
                   <label for="firstName">Primer nombre:</label>
                   <input type="text" id="firstName" name="firstName" required>

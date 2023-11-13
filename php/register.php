@@ -32,7 +32,7 @@ $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, d
         VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password', '$email')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Registro exitoso";
+    echo "success";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
