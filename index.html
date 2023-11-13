@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
   <title>Fb Clone</title>
   <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-512/facebook-social-media-fb-logo-square-44659.png" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- To get the font-awesome CSS style sheet for the 'Eye Icon' located in the password field -->
+  <!-- Hoja de estilo de font-awesome para el 'Icono de ojo' ubicado en el campo de contraseña -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 </head>
 
@@ -21,35 +21,31 @@
               <img class="fb-logo" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="" />
             </div>
             <h2 class="logo-caption">
-              Facebook helps you connect and share with the people in your
-              life.
+              Facebook te ayuda a conectarte y compartir con las personas en tu vida.
             </h2>
           </div>
           <div class="right-box">
             <div class="form-container">
               <form id="loginForm">
                 <div class="space">
-                  <input type="text" class="email-box" placeholder="Email address or phone number" />
+                  <input type="text" class="email-box" placeholder="Dirección de correo electrónico o número de teléfono" />
                 </div>
                 <div style="display: flex">
                   <div class="space">
-                    <input type="password" class="pw-box" placeholder="Password" id="password_field" />
+                    <input type="password" class="pw-box" placeholder="Contraseña" id="password_field" />
                   </div>
                   <i class="far fa-eye-slash" id="toggleEyeIcon"
                     style="cursor: pointer; display: none; margin: 24px -42px"></i>
                 </div>
                 <div class="space">
                   <button type="button" class="login-button">
-                    <b>Log In</b>
+                    <b>Iniciar sesión</b>
                   </button>
-                </div>
-                <div class="spaceTwo adjustTwo">
-                  <a href="#" class="adjust-forgot-pw">Forgotten password?</a>
                 </div>
                 <div class="line"></div>
                 <div>
                   <button type="button" class="create-button" onclick="toggleForm('registerForm')">
-                    <b>Create New Account</b>
+                    <b>Crear cuenta nueva</b>
                   </button>
                 </div>
               </form>
@@ -57,11 +53,15 @@
               <!-- Formulario de registro (inicialmente oculto) -->
               <form id="registerForm" style="display: none;">
                 <!-- ... (campos de registro y botones) ... -->
-                <div>
-                  <button type="button" class="create-button" onclick="toggleForm('loginForm')">
-                    <b>Back to Login</b>
+                <div class="form-buttons-container">
+                  <button type="button" class="cancel-button" onclick="toggleForm('loginForm')">
+                    <b>Cancelar</b>
+                  </button>
+                  <button type="button" class="login-button" onclick="toggleForm('loginForm')">
+                    <b>Registrar</b>
                   </button>
                 </div>
+
               </form>
             </div>
           </div>
@@ -72,10 +72,9 @@
       <div>
         <div class="fb-clone">
           <p>
-            Disclaimer: This web page is a personal portfolio project. Hence,
-            please kindly do not enter any of your credentials here. We will
-            not be liable for any losses or damages arising from such an
-            action.
+            Descargo de responsabilidad: Esta página web es un proyecto personal de portafolio. Por lo tanto,
+            por favor, no ingreses ninguna de tus credenciales aquí. No seremos responsables de pérdidas o daños
+            resultantes de tal acción.
           </p>
           <a class="fb-clone-link" href="https://github.com/melvincwng/facebook-clone" target="_blank"
             rel="noopener noreferrer">Fb Clone © 2022</a>
@@ -84,12 +83,12 @@
     </footer>
   </div>
 
-  <!-- Script to toggle on & off the eye icon in the password field -->
+  <!-- Script para alternar el icono de ojo en el campo de contraseña -->
   <script src="./js/toggleEyeIcon.js"></script>
-  <!-- Script to change/randomize background image every time the webpage is reloaded -->
+  <!-- Script para cambiar/aleatorizar la imagen de fondo cada vez que se recarga la página web -->
   <script src="./js/changeBackgroundImage.js"></script>
 
-  <!-- Script prueba de clic -->
+  <!-- Script de prueba de clic -->
   <script src="./js/pruebaClic.js"></script>
 
   <!-- Script para alternar entre formularios (ubicado en la carpeta js) -->

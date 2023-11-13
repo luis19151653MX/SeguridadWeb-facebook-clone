@@ -110,6 +110,11 @@ anyway I added that sparking dots gif in my footer.
   outline-offset: -2px;
 }
 
+.form-buttons-container{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+}
 .login-button {
   background-color: rgb(25, 120, 243);
   border: none;
@@ -145,6 +150,22 @@ anyway I added that sparking dots gif in my footer.
   cursor: pointer;
 }
 
+.cancel-button {
+  background-color: rgb(172, 177, 184);
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  color: white;
+  line-height: 48px;
+  padding: 0 16px;
+  width: 364px;
+  vertical-align: middle;
+}
+
+.cancel-button:hover {
+  background-color: rgb(169, 172, 176);
+  cursor: pointer;
+}
 .line {
   align-items: center;
   border-bottom: 1px solid lightgray;
