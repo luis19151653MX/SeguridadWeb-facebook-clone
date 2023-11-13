@@ -27,14 +27,23 @@ if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
 
-// Insertar datos en la base de datos
-$sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
-        VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password', '$email')";
+// Verificar si el correo electrónico ya está en uso
+$checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$email'";
+$result = $conn->query($checkEmailQuery);
 
-if ($conn->query($sql) === TRUE) {
-    echo "success";
+if ($result->num_rows > 0) {
+    // El correo electrónico ya está en uso
+    echo "email repetido";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Insertar datos en la base de datos
+    $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
+            VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password', '$email')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "success";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();

@@ -31,9 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(data => {
         // Manejar la respuesta del servidor
         if (data === 'success') {
+          alert('Registro exitoso');
           // Si la respuesta es 'success', cambiar al formulario de inicio de sesión
           toggleForm('loginForm');
-        } else {
+          return;
+        }
+        if(data==='email repetido') {
+          alert('El correo ya esta en uso');
+          return;
+        }
+        else {
           // Manejar otros escenarios según sea necesario
           console.log(data);
         }
