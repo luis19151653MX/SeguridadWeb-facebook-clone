@@ -5,10 +5,12 @@ function toggleForm(formId) {
 
   if (formId === 'loginForm') {
     loginForm.style.display = 'flex';
+    loginForm.style.gap="30px"
     registerForm.style.display = 'none';
   } else {
     loginForm.style.display = 'none';
     registerForm.style.display = 'flex';
+    registerForm.style.gap="15px"
   }
 }
 
