@@ -1,23 +1,32 @@
-# Project - Facebook Website Clone
-This project requires you to clone or rebuild any website of your choice, using **only HTML, CSS & JS**.
+# Project WeakEncryption- Facebook 
+This project requires you to clone or rebuild any website of your choice, using **only HTML, CSS,JS & PHP**.
 
-Website chosen: **Facebook login page**.
+## Clonar proyecto
+1. Desde una terminal visual studio code: cd ruta/del/directorio(si usas xampp que este en htdocs)
+2. git clone https://github.com/luis19151653MX/SeguridadWeb-facebook-clone.git
 
-## Languages:
-HTML, CSS & JS only
+## Abrir proyecto en el navegador
+No olvides encender el servidor apache y mysql desde xampp:
+<br/> 
+**URL**: http://localhost/facebook-clone/
 
-## How to access the webpage:
-1. Clone the repository
-2. Open in VSCode
-3. Click on the 'index.html' file
-4. Right click and select 'Open in Default Browser'
-5. These instructions are only for VSCode IDE. If using other IDEs, please check how to open html files in those respective IDEs
 
-## Demo (static image):
-<img src="https://github.com/melvincwng/facebook-clone/blob/master/images/fbclone.JPG"/>
+## Configuracion de la base de datos
+1. Crear base de datos mysql llamada facebook. 
+2. Crear la tabla usuarios, puedes usar la siguiente query:
+<br />
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    primer_nombre VARCHAR(50) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    apellido_paterno VARCHAR(50) NOT NULL,
+    numero_celular VARCHAR(20) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+    sexo VARCHAR(10) NOT NULL,
+    pais VARCHAR(50) NOT NULL,
+    religion VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(255) NOT NULL 
+);
 
 ## Demo (animated gif):
 <img src="https://github.com/melvincwng/facebook-clone/blob/master/images/fbclone.gif" />
-
-## Extras:
-There are **4** animated background images available **(spring, summer, autumn, winter)**. One of them will be randomly chosen when you load the webpage. Which one will you get 😉?
