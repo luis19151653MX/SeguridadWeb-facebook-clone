@@ -47,11 +47,11 @@
 
 
 .form-login {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
     /*alinea verticalmente en column*/
     align-items: center;
     justify-content: center;
@@ -168,4 +168,16 @@
 .cancel-button:hover {
     background-color: rgb(169, 172, 176);
     cursor: pointer;
+}
+
+.visible {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    width: 0px;
+    visibility: hidden;
+    height: 0px;
 }
