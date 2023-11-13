@@ -4,17 +4,12 @@ function toggleForm(formId) {
   var registerForm = document.getElementById('registerForm');
 
   if (formId === 'loginForm') {
-    loginForm.classList.add('visible');
-    loginForm.classList.remove('hidden');  // Eliminar la clase 'hidden' si estaba presente
-    registerForm.classList.remove('visible');
-    registerForm.classList.add('hidden');
+    loginForm.style.display = 'flex';
+    registerForm.style.display = 'none';
   } else {
-    loginForm.classList.remove('visible');
-    loginForm.classList.add('hidden');
-    registerForm.classList.add('visible');
-    registerForm.classList.remove('hidden');  // Eliminar la clase 'hidden' si estaba presente
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'flex';
   }
-  console.log(loginForm.style)
 }
 
 document.addEventListener('DOMContentLoaded', function () {
