@@ -1,21 +1,14 @@
 // toggleForms.js
 function toggleForm(formId) {
-  console.log("Cambio formulario");
   var loginForm = document.getElementById('loginForm');
   var registerForm = document.getElementById('registerForm');
 
   if (formId === 'loginForm') {
-    loginForm.style.opacity = '1';
-    loginForm.style.pointerEvents = 'auto';
-
-    registerForm.style.opacity = '0';
-    registerForm.style.pointerEvents = 'none';
+    loginForm.style.display = 'block';
+    registerForm.style.display = 'none';
   } else {
-    loginForm.style.opacity = '0';
-    loginForm.style.pointerEvents = 'none';
-
-    registerForm.style.opacity = '1';
-    registerForm.style.pointerEvents = 'auto';
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'block';
   }
 }
 
