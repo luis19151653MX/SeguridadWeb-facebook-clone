@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Fb Clone</title>
+  <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-512/facebook-social-media-fb-logo-square-44659.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <!-- Hoja de estilo de font-awesome para el 'Icono de ojo' ubicado en el campo de contraseña -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="contains-top-half-and-footer-bottom-half">
+    <div class="global-container">
+      <div class="bigger-box">
+        <div class="big-box">
+          <div class="left-box">
+            <div class="image-box">
+              <img class="fb-logo" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="" />
+            </div>
+            <h2 class="logo-caption">
+              Facebook te ayuda a conectarte y compartir con las personas en tu vida.
+            </h2>
+          </div>
+
+          <div class="right-box" id="loginForm">
+            <div class="form-container">
+              <form>
+                <div class="space">
+                  <input type="text" class="email-box" placeholder="Dirección de correo electrónico" />
+                </div>
+                <div style="display: flex">
+                  <div class="space">
+                    <input type="password" class="pw-box" placeholder="Contraseña" id="password_field" />
+                  </div>
+                  <i class="far fa-eye-slash" id="toggleEyeIcon"
+                    style="cursor: pointer; display: none; margin: 24px -42px"></i>
+                </div>
+                <div class="space">
+                  <button type="button" class="login-button">
+                    <b>Iniciar sesión</b>
+                  </button>
+                </div>
+                <div class="line"></div>
+                <div>
+                  <button type="button" class="create-button" onclick="toggleForm('registerForm')">
+                    <b>Crear cuenta nueva</b>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="custom-right-box" id="registerForm" style="display: none;">
+
+            <!-- Formulario de registro (inicialmente oculto) -->
+            <form class="form" action="./php/register.php" method="post">
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="firstName" name="firstName" required>
+                <label for="firstName" class="form__label">Primer nombre</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="lastName" name="lastName" required>
+                <label for="lastName" class="form__label">Apellido Paterno</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="email" name="email" required>
+                <label for="email" class="form__label">Correo electrónico (@gmail.com)</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="phoneNumber" name="phoneNumber" required>
+                <label for="phoneNumber" class="form__label">Número celular</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="address" name="address" required>
+                <label for="address" class="form__label">Dirección</label>
+              </div>
+
+              <div class="form__div">
+                <select id="gender" name="gender" class="form__input" required>
+                  <option value="male">Masculino</option>
+                  <option value="female">Femenino</option>
+                </select>
+                <label for="gender" class="form__label">Sexo</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="country" name="country" required>
+                <label for="country" class="form__label">País</label>
+              </div>
+
+              <div class="form__div">
+                <input type="text" class="form__input" id="religion" name="religion" required>
+                <label for="religion" class="form__label">Religión</label>
+              </div>
+
+              <div class="form__div">
+                <input type="password" class="form__input" id="password" name="password" minlength="8" required>
+                <label for="password" class="form__label">Contraseña</label>
+                <small>Debe tener al menos 8 caracteres.</small>
+              </div>
+
+              <div class="form-buttons-container">
+                <button type="button" class="cancel-button" onclick="toggleForm('loginForm')">
+                  <b>Cancelar</b>
+                </button>
+                <button type="submit" class="login-button">
+                  <b>Registrar</b>
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div>
+      <div class="fb-clone">
+        <p>
+          Descargo de responsabilidad: Esta página web es un proyecto personal de portafolio. Por lo tanto,
+          por favor, no ingreses ninguna de tus credenciales aquí. No seremos responsables de pérdidas o daños
+          resultantes de tal acción.
+        </p>
+        <a class="fb-clone-link" href="https://github.com/melvincwng/facebook-clone" target="_blank"
+          rel="noopener noreferrer">Fb Clone © 2022</a>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <!-- Script para alternar el icono de ojo en el campo de contraseña -->
+  <script src="./js/toggleEyeIcon.js"></script>
+  <!-- Script para cambiar/aleatorizar la imagen de fondo cada vez que se recarga la página web -->
+  <script src="./js/changeBackgroundImage.js"></script>
+
+  <!-- Script de prueba de clic -->
+  <script src="./js/pruebaClic.js"></script>
+
+  <!-- Script para alternar entre formularios (ubicado en la carpeta js) -->
+  <script src="./js/tooggleForms.js"></script>
+</body>
+
+</html>
