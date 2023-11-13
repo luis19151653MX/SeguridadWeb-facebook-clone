@@ -8,7 +8,7 @@ function changeBackgroundImage() {
     "./images/winter.gif",
   ];
 
-  backgroundImageElement.style.backgroundImage = `url(${arrayOfBackgroundImagePaths[randomNumberGenerated]})`;
+  backgroundImageElement.style.backgroundImage = "url(./images/winter.gif)";
 }
 
 changeBackgroundImage();
