@@ -18,14 +18,14 @@ No olvides encender el servidor apache y mysql desde xampp:
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     primer_nombre VARCHAR(50) NOT NULL,
-    correo VARCHAR(100) NOT NULL UNIQUE,
     apellido_paterno VARCHAR(50) NOT NULL,
     numero_celular VARCHAR(20) NOT NULL,
     direccion VARCHAR(100) NOT NULL,
     sexo VARCHAR(10) NOT NULL,
     pais VARCHAR(50) NOT NULL,
     religion VARCHAR(50) NOT NULL,
-    contraseña VARCHAR(255) NOT NULL 
+    contraseña VARCHAR(255) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
 );
 
 ## Demo (animated gif):
