@@ -27,6 +27,3 @@ CREATE TABLE usuarios (
     contraseña VARCHAR(255) NOT NULL,
     correo VARCHAR(100) NOT NULL UNIQUE,
 );
-
-## Demo (animated gif):
-<img src="https://github.com/melvincwng/facebook-clone/blob/master/images/fbclone.gif" />
