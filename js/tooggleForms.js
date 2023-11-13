@@ -12,4 +12,3 @@ function toggleForm(formId) {
       registerForm.style.display = 'block';
     }
   }
-toggleForm(formId);
