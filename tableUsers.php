@@ -13,7 +13,13 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
 
 <body>
     <table border="1" style="text-align:center; margin:auto;">
+        <button style="float:right;" onclick="logOut()">
+            Cerrar sesión
+
+        </button>
+
         <h1 style="text-align:center; margin:auto;">Usuarios</h1>
+
         <thead>
             <tr>
                 <th>id</th>
@@ -58,6 +64,13 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
 
         </tbody>
     </table>
+
+    <script>
+        function logOut() {
+            // Cambiar la URL a la página a la que deseas redirigir
+            window.location.href = "http://localhost/SeguridadWeb-facebook-clone/";
+        }
+    </script>
 </body>
 
 </html>

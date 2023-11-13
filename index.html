@@ -25,9 +25,9 @@
 
       <div class="right-box">
         <!--Login form-->
-        <form class="form-login" id="loginForm" >
+        <form class="form-login" id="loginForm" action="./php/login.php" method="post">
           <div class="form__div">
-            <input type="text" class="form__input" action="./php/login.php" id="login-email" name="login-email" placeholder="" required>
+            <input type="text" class="form__input" id="login-email" name="login-email" placeholder="" required>
             <label for="login-email" class="form__label">Correo electrónico</label>
           </div>
 
@@ -40,7 +40,7 @@
             <button type="button" class="create-button" onclick="toggleForm('registerForm')">
               <b>Registrate</b>
             </button>
-            <button type="button" class="login-button">
+            <button type="submit" class="login-button">
               <b>Iniciar sesión</b>
             </button>
           </div>
@@ -124,6 +124,8 @@
 
   <!-- Script para alternar entre formularios (ubicado en la carpeta js) -->
   <script src="./js/tooggleForms.js"></script>
+
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
