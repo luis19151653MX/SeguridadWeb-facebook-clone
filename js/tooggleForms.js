@@ -5,11 +5,17 @@ function toggleForm(formId) {
   var registerForm = document.getElementById('registerForm');
 
   if (formId === 'loginForm') {
-    loginForm.style.display = 'block';
-    registerForm.style.display = 'none';
+    loginForm.style.opacity = '1';
+    loginForm.style.pointerEvents = 'auto';
+
+    registerForm.style.opacity = '0';
+    registerForm.style.pointerEvents = 'none';
   } else {
-    loginForm.style.display = 'none';
-    registerForm.style.display = 'block';
+    loginForm.style.opacity = '0';
+    loginForm.style.pointerEvents = 'none';
+
+    registerForm.style.opacity = '1';
+    registerForm.style.pointerEvents = 'auto';
   }
 }
 
