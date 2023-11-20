@@ -26,6 +26,8 @@ $password = $_POST['password'];
 if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
+//cifrar contraseña con md5
+$password_md5 = md5($password);
 
 // Verificar si el correo electrónico ya está en uso
 $checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$email'";
@@ -37,7 +39,7 @@ if ($result->num_rows > 0) {
 } else {
     // Insertar datos en la base de datos
     $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
-            VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password', '$email')";
+            VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password_md5', '$email')";
 
     if ($conn->query($sql) === TRUE) {
         echo "success";
@@ -47,4 +49,3 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-?>

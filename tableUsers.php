@@ -30,7 +30,7 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
                 <th>sexo</th>
                 <th>pais</th>
                 <th>religion</th>
-                <th>contraseña</th>
+                <th>contraseña(md5)</th>
                 <th>correo</th>
             </tr>
         </thead>

@@ -14,9 +14,11 @@ if ($conn->connect_error) {
 // Recuperar datos del formulario
 $email = $_POST['login-email'];
 $password = $_POST['login-password'];
+//convertir a md5 la contraseña
+$password_md5=md5($password);
 
 // Verificar credenciales
-$checkQuery = "SELECT * FROM usuarios WHERE correo = '$email' AND contraseña = '$password'";
+$checkQuery = "SELECT * FROM usuarios WHERE correo = '$email' AND contraseña = '$password_md5'";
 $result = $conn->query($checkQuery);
 
 if ($result->num_rows > 0) {
