@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos (modifica las credenciales según tu configuración)
+// Database connection (modify credentials according to your configuration)
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Recuperar datos del formulario
+// Retrieve data from the form
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $phoneNumber = $_POST['phoneNumber'];
@@ -22,13 +22,17 @@ $religion = $_POST['religion'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Validar la longitud de la contraseña
+// Validate password length
 if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
 
-//encriptar los campos con AES
-// Generar un IV de 16 bytes
+
+
+
+
+// Encrypt fields with AES
+// Generate a 16-byte IV
 $iv = "1234567890123456";
 $clave_aes = "secret_password";
 $encrypted_first = openssl_encrypt($firstName, 'aes-256-cbc', $clave_aes,0,$iv);
@@ -38,20 +42,23 @@ $encrypted_address = openssl_encrypt($address, 'aes-256-cbc', $clave_aes,0,$iv);
 $encrypted_gender = openssl_encrypt($gender, 'aes-256-cbc', $clave_aes,0,$iv);
 $encrypted_country = openssl_encrypt($country, 'aes-256-cbc', $clave_aes,0,$iv);
 $encrypted_religion = openssl_encrypt($religion, 'aes-256-cbc', $clave_aes,0,$iv);
-
-//cifrar contraseña con password hash
+// Hash password with password hash
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 
-// Verificar si el correo electrónico ya está en uso
+
+
+
+
+// Check if the email is already in use
 $checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$email'";
 $result = $conn->query($checkEmailQuery);
 
 if ($result->num_rows > 0) {
-    // El correo electrónico ya está en uso
+    // The email is already in use
     echo "email repetido";
 } else {
-    // Insertar datos en la base de datos
+    // Insert data into the database
     $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
             VALUES ('$encrypted_first', '$encrypted_lastName', '$encrypted_phoneNumber', '$encrypted_address', '$encrypted_gender', '$encrypted_country', '$encrypted_religion', '$password_hash', '$email')";
 

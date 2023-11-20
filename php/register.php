@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos (modifica las credenciales según tu configuración)
+// database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Recuperar datos del formulario
+// Retrieve data from the form
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $phoneNumber = $_POST['phoneNumber'];
@@ -22,12 +22,16 @@ $religion = $_POST['religion'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Validar la longitud de la contraseña
+// Validate password length
 if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
 
-//codificar campos encode base 64, 
+
+
+
+
+// Encode fields using base64
 $encode_first=base64_encode($firstName);
 $encode_lastName=base64_encode($lastName);
 $encode_phoneNumber=base64_encode($phoneNumber);
@@ -36,20 +40,22 @@ $encode_gender=base64_encode($gender);
 $encode_country=base64_encode($country);
 $encode_religion=base64_encode($religion);
 $encode_email=base64_encode($email);
-
-//cifrar contraseña con md5
+// Encrypt password using md5
 $password_md5 = md5($password);
 
 
-// Verificar si el correo electrónico ya está en uso
+
+
+
+// Check if the email is already in use
 $checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$encode_email'";
 $result = $conn->query($checkEmailQuery);
 
 if ($result->num_rows > 0) {
-    // El correo electrónico ya está en uso
+    // The email is already in use
     echo "email repetido";
 } else {
-    // Insertar datos en la base de datos
+    // Insert data into the database
     $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
             VALUES ('$encode_first', '$encode_lastName', '$encode_phoneNumber', '$encode_address', '$encode_gender', '$encode_country', '$encode_religion', '$password_md5', '$encode_email')";
 
