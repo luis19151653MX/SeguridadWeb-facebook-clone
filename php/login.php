@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos (modifica las credenciales según tu configuración)
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,16 +11,14 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Recuperar datos del formulario
 $email = $_POST['login-email'];
 $password = $_POST['login-password'];
 
 
-//convertir a md5 la contraseña y codificar correo
 $encode_email=base64_encode($email);
 $password_md5=md5($password);
 
-// Verificar credenciales
+// check credentials
 $checkQuery = "SELECT * FROM usuarios WHERE correo = '$encode_email' AND contraseña = '$password_md5'";
 $result = $conn->query($checkQuery);
 
