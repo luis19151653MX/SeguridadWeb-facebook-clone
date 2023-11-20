@@ -3,10 +3,9 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
 
 function desencriptar($valor_cifrado)
 {
-    // Desencriptar usando aes-256-cbc
+    // decrypt AES
     $desencriptado = openssl_decrypt($valor_cifrado, 'aes-256-cbc', "secret_password", 0, "1234567890123456");
     echo "<script>console.log('this is a Valor: " . $valor_cifrado. "' );</script>";
-    // Devolver el valor desencriptado
     return $desencriptado;
 }
 ?>
@@ -76,12 +75,10 @@ function desencriptar($valor_cifrado)
 
     <script>
         function logOut() {
-            // Cambiar la URL a la página a la que deseas redirigir
             window.location.href = "http://localhost/SeguridadWeb-facebook-clone/";
         }
 
         function showEncrypt() {
-            // Cambiar la URL a la página a la que deseas redirigir
             window.location.href = "http://localhost/SeguridadWeb-facebook-clone/tableUsers.php";
         }
     </script>

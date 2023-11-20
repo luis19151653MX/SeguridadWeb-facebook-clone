@@ -72,12 +72,10 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
 
     <script>
         function logOut() {
-            // Cambiar la URL a la página a la que deseas redirigir
             window.location.href = "http://localhost/SeguridadWeb-facebook-clone/";
         }
         function showDecrypt() {
-            // Cambiar la URL a la página a la que deseas redirigir
-            window.location.href = "http://localhost/SeguridadWeb-facebook-clone/secureTable.php";
+             window.location.href = "http://localhost/SeguridadWeb-facebook-clone/secureTable.php";
         }
     </script>
 </body>
