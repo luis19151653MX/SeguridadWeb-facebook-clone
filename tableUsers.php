@@ -18,7 +18,7 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
             Cerrar sesión
         </button>
         <button style="float:right;" onclick="showDecrypt()">
-            Ver datos desencriptados
+            Ver datos desencriptados solo AES
         </button>
     </div>
         
