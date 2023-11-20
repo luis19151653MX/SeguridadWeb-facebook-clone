@@ -26,11 +26,23 @@ $password = $_POST['password'];
 if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
+
+//codificar campos encode base 64, 
+$encode_first=base64_encode($firstName);
+$encode_lastName=base64_encode($lastName);
+$encode_phoneNumber=base64_encode($phoneNumber);
+$encode_address=base64_encode($address);
+$encode_gender=base64_encode($gender);
+$encode_country=base64_encode($country);
+$encode_religion=base64_encode($religion);
+$encode_email=base64_encode($email);
+
 //cifrar contraseña con md5
 $password_md5 = md5($password);
 
+
 // Verificar si el correo electrónico ya está en uso
-$checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$email'";
+$checkEmailQuery = "SELECT * FROM usuarios WHERE correo = '$encode_email'";
 $result = $conn->query($checkEmailQuery);
 
 if ($result->num_rows > 0) {
@@ -39,7 +51,7 @@ if ($result->num_rows > 0) {
 } else {
     // Insertar datos en la base de datos
     $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
-            VALUES ('$firstName', '$lastName', '$phoneNumber', '$address', '$gender', '$country', '$religion', '$password_md5', '$email')";
+            VALUES ('$encode_first', '$encode_lastName', '$encode_phoneNumber', '$encode_address', '$encode_gender', '$encode_country', '$encode_religion', '$password_md5', '$encode_email')";
 
     if ($conn->query($sql) === TRUE) {
         echo "success";

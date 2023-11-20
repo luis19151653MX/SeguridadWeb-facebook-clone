@@ -28,3 +28,8 @@ CREATE TABLE usuarios (
     contraseña VARCHAR(255) NOT NULL,
     correo VARCHAR(100) NOT NULL UNIQUE
 );
+
+
+# Vulnerabilidad(archivo php/register)
+El proyecto ejecutandolo como esta actualmente, registra usuarios codificando su informacion usando algotimos de codificacion base 64, las cadenas codificadas de esta forma pueden ser facilmente vulneradas, ya que se puede revertir facilmenete la codificacion. Por ejemplo se puede usar esta web:https://www.base64decode.org/
+Mienstras que la contraseña se guarda con el algoritmo de encriptacion MD5, el cual es muy facil the crakear usando John the Ripper.
