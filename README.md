@@ -8,7 +8,7 @@ This project requires you to clone or rebuild any website of your choice, using 
 ## Abrir proyecto en el navegador
 No olvides encender el servidor apache y mysql desde xampp:
 <br/> 
-**URL**: http://localhost/facebook-clone/
+**URL**: http://localhost/SeguridadWeb-facebook-clone/
 
 
 ## Configuracion de la base de datos
@@ -25,5 +25,5 @@ CREATE TABLE usuarios (
     pais VARCHAR(50) NOT NULL,
     religion VARCHAR(50) NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
-    correo VARCHAR(100) NOT NULL UNIQUE,
+    correo VARCHAR(100) NOT NULL UNIQUE
 );
