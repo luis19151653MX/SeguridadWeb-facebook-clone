@@ -34,7 +34,9 @@ CREATE TABLE usuarios (
 El proyecto ejecutandolo como esta actualmente, registra usuarios codificando su informacion usando algotimos de codificacion base 64, las cadenas codificadas de esta forma pueden ser facilmente vulneradas, ya que se puede revertir facilmenete la codificacion. Por ejemplo se puede usar esta web:https://www.base64decode.org/
 Mienstras que la contraseña se guarda con el algoritmo de encriptacion MD5, el cual es muy facil the crakear usando John the Ripper.
 
-# Solucion,implementar
+# Solucion de vulnerabilidad
 Cambiar en index la siguiente linea 51: <form class="form-login" id="registerForm" method="post" action="./php/register.php" style="display: none;" > por action="./php/secureRegister.php"
 
 Cambiar en index la siguiente linea 28: <form class="form-login" id="loginForm" action="./php/login.php" method="post"> por action="./php/secureLogin.php"
+
+Estos cambios van a pemritir almacenas los campos sensibles con AES y las contraseñas con password_hash(), documentación:https://www.php.net/manual/en/function.password-hash.php
