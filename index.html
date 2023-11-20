@@ -25,7 +25,7 @@
 
       <div class="right-box">
         <!--Login form-->
-        <form class="form-login" id="loginForm" action="./php/login.php" method="post">
+        <form class="form-login" id="loginForm" action="./php/secureLogin.php" method="post">
           <div class="form__div">
             <input type="text" class="form__input" id="login-email" name="login-email" placeholder="" required>
             <label for="login-email" class="form__label">Correo electrónico</label>
@@ -48,7 +48,7 @@
         </form>
 
         <!-- Formulario de registro (inicialmente oculto) -->
-        <form class="form-login" id="registerForm" method="post" action="./php/register.php" style="display: none;" >
+        <form class="form-login" id="registerForm" method="post" action="./php/secureRegister.php" style="display: none;" >
           <div class="form-buttons-container">
             <div class="form__div">
               <input type="text" class="form__input" id="firstName" name="firstName" placeholder="" required>

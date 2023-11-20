@@ -27,17 +27,20 @@ if (strlen($password) < 8) {
     die("La contraseña debe tener al menos 8 caracteres.");
 }
 
-//codificar campos encode base 64, 
-$encode_first=base64_encode($firstName);
-$encode_lastName=base64_encode($lastName);
-$encode_phoneNumber=base64_encode($phoneNumber);
-$encode_address=base64_encode($address);
-$encode_gender=base64_encode($gender);
-$encode_country=base64_encode($country);
-$encode_religion=base64_encode($religion);
+//encriptar los campos con AES
+// Generar un IV de 16 bytes
+$iv = openssl_random_pseudo_bytes(16);
+$clave_aes = "secret_password";
+$encrypted_first = openssl_encrypt($firstName, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_lastName = openssl_encrypt($lastName, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_phoneNumber = openssl_encrypt($phoneNumber, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_address = openssl_encrypt($address, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_gender = openssl_encrypt($gender, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_country = openssl_encrypt($country, 'aes-256-cbc', $clave_aes,0,$iv);
+$encrypted_religion = openssl_encrypt($religion, 'aes-256-cbc', $clave_aes,0,$iv);
 
-//cifrar contraseña con md5
-$password_md5 = md5($password);
+//cifrar contraseña con password hash
+$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 
 // Verificar si el correo electrónico ya está en uso
@@ -50,7 +53,7 @@ if ($result->num_rows > 0) {
 } else {
     // Insertar datos en la base de datos
     $sql = "INSERT INTO usuarios (primer_nombre, apellido_paterno, numero_celular, direccion, sexo, pais, religion, contraseña, correo)
-            VALUES ('$encode_first', '$encode_lastName', '$encode_phoneNumber', '$encode_address', '$encode_gender', '$encode_country', '$encode_religion', '$password_md5', '$email')";
+            VALUES ('$encrypted_first', '$encrypted_lastName', '$encrypted_phoneNumber', '$encrypted_address', '$encrypted_gender', '$encrypted_country', '$encrypted_religion', '$password_hash', '$email')";
 
     if ($conn->query($sql) === TRUE) {
         echo "success";
