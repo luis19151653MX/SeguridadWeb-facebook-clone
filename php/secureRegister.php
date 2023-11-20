@@ -29,7 +29,7 @@ if (strlen($password) < 8) {
 
 //encriptar los campos con AES
 // Generar un IV de 16 bytes
-$iv = openssl_random_pseudo_bytes(16);
+$iv = "1234567890123456";
 $clave_aes = "secret_password";
 $encrypted_first = openssl_encrypt($firstName, 'aes-256-cbc', $clave_aes,0,$iv);
 $encrypted_lastName = openssl_encrypt($lastName, 'aes-256-cbc', $clave_aes,0,$iv);

@@ -1,5 +1,14 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'facebook');
+
+function desencriptar($valor_cifrado)
+{
+    // Desencriptar usando aes-256-cbc
+    $desencriptado = openssl_decrypt($valor_cifrado, 'aes-256-cbc', "secret_password", 0, "1234567890123456");
+    echo "<script>console.log('this is a Valor: " . $valor_cifrado. "' );</script>";
+    // Devolver el valor desencriptado
+    return $desencriptado;
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +26,10 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
         <button style="float:right;" onclick="logOut()">
             Cerrar sesión
         </button>
-        <button style="float:right;" onclick="showDecrypt()">
-            Ver datos desencriptados
+        <button style="float:right;" onclick="showEncrypt()">
+            Ver datos encriptados
         </button>
     </div>
-        
 
         <h1 style="text-align:center; margin:auto;">Usuarios</h1>
 
@@ -30,9 +38,7 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
                 <th>id</th>
                 <th>primer_nombre</th>
                 <th>apellido_paterno</th>
-                <th>numero_celular</th>
                 <th>direccion</th>
-                <th>sexo</th>
                 <th>pais</th>
                 <th>religion</th>
                 <th>contraseña</th>
@@ -51,13 +57,11 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
 
                 <tr>
                     <td><?php echo $row['id'] ?></td>
-                    <td><?php echo $row['primer_nombre'] ?></td>
-                    <td><?php echo $row['apellido_paterno'] ?></td>
-                    <td><?php echo $row['numero_celular'] ?></td>
-                    <td><?php echo $row['direccion'] ?></td>
-                    <td><?php echo $row['sexo'] ?></td>
-                    <td><?php echo $row['pais'] ?></td>
-                    <td><?php echo $row['religion'] ?></td>
+                    <td><?php echo desencriptar($row['primer_nombre']) ?></td>
+                    <td><?php echo desencriptar($row['apellido_paterno']) ?></td>
+                    <td><?php echo desencriptar($row['direccion']) ?></td>
+                    <td><?php echo desencriptar($row['pais']) ?></td>
+                    <td><?php echo desencriptar($row['religion']) ?></td>
                     <td><?php echo $row['contraseña'] ?></td>
                     <td><?php echo $row['correo'] ?></td>
                 </tr>
@@ -75,9 +79,10 @@ $con = mysqli_connect('localhost', 'root', '', 'facebook');
             // Cambiar la URL a la página a la que deseas redirigir
             window.location.href = "http://localhost/SeguridadWeb-facebook-clone/";
         }
-        function showDecrypt() {
+
+        function showEncrypt() {
             // Cambiar la URL a la página a la que deseas redirigir
-            window.location.href = "http://localhost/SeguridadWeb-facebook-clone/secureTable.php.php";
+            window.location.href = "http://localhost/SeguridadWeb-facebook-clone/tableUsers.php";
         }
     </script>
 </body>
